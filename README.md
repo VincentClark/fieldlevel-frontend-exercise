@@ -5,7 +5,6 @@ The purpose of this exercise is to create a conversation piece for your next int
 
 The current state of this repo is the desktop version of a single player blackjack app. Your job will be to expand the current functionality to support a player and a dealer. You will also add a scoreboard that tracks wins, losses, and pushes. A mockup of the final version is provider [here](/assets/blackjack_spec.png)
 
--   Work on a separte branch "feature-add-dealerandscorecard"
 -   Do not spend more than 4 hours, if you do not complete everything, just note it and be prepared to discuss it.
 -   There are no intentionally hidden bugs or tricks. Don’t waste time trying to find them.
 -   Make it match the provided mockup which includes mobile version.
@@ -79,14 +78,14 @@ Once the player hand is finished, it's the dealer's turn. The dealer hand will n
 
 ## Deliverables
 
-- import the exercise repository to your personal Github account using [github's import tool](https://github.com/new/import) import this url: https://github.com/FieldLevel/frontend-exercise-blackjack
-- complete the exercise
-- invite our github user "fl-codereview" to be a collaborator on the repository
-- create a pull request from your branch to main
-- let us(your interview coordinator) know when you are ready to review
+- Import the exercise repository to your personal Github account using [github's import tool](https://github.com/new/import) import this url: https://github.com/FieldLevel/fieldlevel-frontend-exercise
+- Complete the exercise
+- Invite our github user "fl-codereview" to be a collaborator on the repository
+- Create a pull request from your branch to main
+- Let us(your interview coordinator) know when you are ready to review
 
 ## Followup Interview Prep
-* Be prepared to walk us through your work and explain your decisions as if you were doing a code review.
+* Be prepared to walk us through your Pull Request and explain your decisions as if you were doing a code review.
 * We want to hear you be very verbose about your process and the decisions you made along the way. 
 * Additionally, we will dive into your current responsibilities and have you explain what you are looking for in your next position.
 
