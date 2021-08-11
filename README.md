@@ -5,13 +5,14 @@ The purpose of this exercise is to create a conversation piece for your next int
 
 The current state of this repo is the desktop version of a single player blackjack app. Your job will be to expand the current functionality to support a player and a dealer. You will also add a scoreboard that tracks wins, losses, and pushes. A mockup of the final version is provider [here](/assets/blackjack_spec.png)
 
+-   Work on a separte branch "feature-add-dealerandscorecard"
 -   Do not spend more than 4 hours, if you do not complete everything, just note it and be prepared to discuss it.
 -   There are no intentionally hidden bugs or tricks. Don’t waste time trying to find them.
 -   Make it match the provided mockup which includes mobile version.
 -   Add UI components to show the dealer's hand. When the hand is initially dealt, the dealer should have one card showing and one card face down. When it is the dealer's turn, all cards should be shown.
 -   Add a scoreboard that tracks the wins, losses, and pushes for the player
 -   Make API calls to load scoreboard data & save scores
--   Prioritize pixel pushing / polish last.
+-   **Prioritize pixel pushing / polish last.**
 
 ## API Documentation
 
@@ -81,7 +82,7 @@ Once the player hand is finished, it's the dealer's turn. The dealer hand will n
 - import the exercise repository to your personal Github account using [github's import tool](https://github.com/new/import) import this url: https://github.com/FieldLevel/frontend-exercise-blackjack
 - complete the exercise
 - invite our github user "fl-codereview" to be a collaborator on the repository
-- create a pull request against your Github repository
+- create a pull request from your branch to main
 - let us(your interview coordinator) know when you are ready to review
 
 ## Followup Interview Prep
