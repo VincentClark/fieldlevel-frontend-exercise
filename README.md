@@ -1,4 +1,5 @@
 ## Exercise Purpose
+
 The purpose of this exercise is to create a conversation piece for your next interview.
 
 ## Exercise Description
@@ -78,32 +79,32 @@ Once the player hand is finished, it's the dealer's turn. The dealer hand will n
 
 ## Deliverables
 
-- Import the exercise repository to your personal Github account using [github's import tool](https://github.com/new/import) import this url: https://github.com/FieldLevel/fieldlevel-frontend-exercise
-- Complete the exercise
-- Invite our github user "fl-codereview" to be a collaborator on the repository
-- Create a pull request from your branch to main
-- Let us(your interview coordinator) know when you are ready to review
+-   Import the exercise repository to your personal Github account using [github's import tool](https://github.com/new/import) import this url: https://github.com/FieldLevel/fieldlevel-frontend-exercise
+-   Complete the exercise
+-   Invite our github user "fl-codereview" to be a collaborator on the repository
+-   Create a pull request from your branch to main
+-   Let us(your interview coordinator) know when you are ready to review
 
 ## Followup Interview Prep
-* Be prepared to walk us through your Pull Request and explain your decisions as if you were doing a code review.
-* We want to hear you be very verbose about your process and the decisions you made along the way. 
-* Additionally, we will dive into your current responsibilities and have you explain what you are looking for in your next position.
 
+-   Be prepared to walk us through your Pull Request and explain your decisions as if you were doing a code review.
+-   We want to hear you be very verbose about your process and the decisions you made along the way.
+-   Additionally, we will dive into your current responsibilities and have you explain what you are looking for in your next position.
 
 ## How To Run
 
 Install project dependencies
 
-`npm install`
+`yarn`
 
 Start the API server
 
-`npm run server`
+`yarn server`
 
 Start the web application
 
-`npm run start`
+`yarn start`
 
 To run the test suite
 
-`npm run test`
+`yarn test`
