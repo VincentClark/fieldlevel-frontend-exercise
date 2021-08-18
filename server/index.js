@@ -37,6 +37,7 @@ app.post('/api/score', (req, res) => {
     res.json(score);
 });
 
-const port = process.env.PORT || 8080;
-app.listen(port);
+const port = process.env.PORT || 3001;
+const host = process.env.HOST || 'localhost';
+app.listen(port, host);
 console.log('App is listening on port ' + port);
