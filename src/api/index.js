@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-const getScore = () => {
-    return axios.get('/api/score').then(res => {
-        return res.data;
-    });
+const getScore = async () => {
+    const res = await axios.get('/api/score');
+    return res.data;
 };
 
 export { getScore };
