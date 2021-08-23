@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-
+import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import { PlayingCard } from '../PlayingCard/PlayingCard';
 import { WinnerBanner } from '../WinnerBanner/WinnerBanner';
 import { Button } from '../shared/Button/Button';
@@ -92,6 +92,8 @@ const BlackJackHand = () => {
     };
 //main game portion
     return (
+        <>
+        <ScoreBoard />
         <div className={styles.Container}>
             <div className={styles.ScoreContainer}>
             <h2>Dealer</h2>
@@ -158,7 +160,9 @@ const BlackJackHand = () => {
                 </div>
             </div>
         </div>
+        </>
     );
+    
 };
 
 export { BlackJackHand };
