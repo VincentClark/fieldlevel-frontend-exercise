@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PlayerHand from './PlayerHand';
+
 import styles from './PlayingCard.module.scss';
 
+let secondDealerCard = 0;
 const PlayingCard = ({ card, faceUp }) => {
+    secondDealerCard ++;
     const code = faceUp ? card.code : 'XX';
-    PlayerHand.getDealerSecondCard() === true?console.log("its a start"):console.log("false");
-
+    console.log(secondDealerCard);
+    
     return (
         <div>
             <img

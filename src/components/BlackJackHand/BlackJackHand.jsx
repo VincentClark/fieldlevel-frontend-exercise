@@ -22,7 +22,7 @@ function init() {
     const dealerFirstCard = deck.dealCard();
     console.log(`Dealer is showing ${dealerFirstCard}`);
     dealerCards.push(dealerFirstCard);
-    console.log(`Dealer card: ${dealerCards[0]}`);
+    console.log(`Dealer card: ${dealerCards[0]}]`);
     //set 2 second timer
 
     playerCards.push(deck.dealCard());
@@ -30,7 +30,7 @@ function init() {
 
     const player = new PlayerHand(false, playerCards);
     const dealer = new PlayerHand(true, dealerCards);
-    console.log("Should be here");
+    console.log("dealercards", dealerCards[0].code);
     const initialState = {
         deck: deck,
         player: player,
@@ -75,6 +75,14 @@ function reducer(state, action) {
 
 const BlackJackHand = () => {
     const [state, dispatch] = useReducer(reducer, {}, init);
+    const isFaceUp = (ind) => {
+        if(ind === 0) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    };
 //main game portion
     return (
         <div className={styles.Container}>
@@ -90,8 +98,13 @@ const BlackJackHand = () => {
             <div className={styles.Cards}>
                 
                 {state.dealer.cards.map((card, index) => (
+                                      
+                
                     <div key={card.code} className={styles.Card}>
-                        <PlayingCard card={card} />
+                        {console.log("index",index)}
+                       
+                        
+                        <PlayingCard card={card} faceUp={isFaceUp(index)} />
                     </div>
                 ))}
             </div> 
