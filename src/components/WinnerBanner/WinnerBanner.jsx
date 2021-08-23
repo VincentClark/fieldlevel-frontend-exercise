@@ -13,6 +13,9 @@ const WinnerBanner = ({ winner, onNewHandClick }) => {
         const json = {'result': win};
         console.log("json", json);
         axios.post('http://localhost:3001/api/score', json)
+        
+     //  window.location.reload(); 
+
     }
 
 
@@ -33,6 +36,8 @@ const WinnerBanner = ({ winner, onNewHandClick }) => {
     }
 
     const details = getDetails(winner);
+    //refresh window
+    
 
     return (
         <div className={styles.Container}>

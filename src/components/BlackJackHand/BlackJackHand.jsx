@@ -93,7 +93,7 @@ const BlackJackHand = () => {
 //main game portion
     return (
         <>
-        <ScoreBoard />
+        <ScoreBoard winner={state.deck} />
         <div className={styles.Container}>
             <div className={styles.ScoreContainer}>
             <h2>Dealer</h2>
