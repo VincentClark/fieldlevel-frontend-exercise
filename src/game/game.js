@@ -9,10 +9,11 @@ export class Card {
     _suit;
     _rank;
     _faceup;
-
-    constructor(suit, rank) {
+    //most likely will remove this. 
+    constructor(suit, rank, faceup) {
         this._suit = suit;
         this._rank = rank;
+        this._faceup = faceup;
     }
     get rank() {
         return this._rank;

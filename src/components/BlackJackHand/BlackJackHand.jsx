@@ -22,15 +22,16 @@ function init() {
     const dealerFirstCard = deck.dealCard();
     console.log(`Dealer is showing ${dealerFirstCard}`);
     dealerCards.push(dealerFirstCard);
-    console.log(`Dealer card: ${dealerCards[0]}]`);
+    
     //set 2 second timer
 
     playerCards.push(deck.dealCard());
     dealerCards.push(deck.dealCard());
-
+    
+    console.log(`Dealer card: ${dealerCards[1]}`);
     const player = new PlayerHand(false, playerCards);
     const dealer = new PlayerHand(true, dealerCards);
-    console.log("dealercards", dealerCards[0].code);
+    console.log("dealercards", dealerCards[1]);
     const initialState = {
         deck: deck,
         player: player,
@@ -65,6 +66,7 @@ function reducer(state, action) {
             console.log("state", state);
             return { ...state };
         case STAY:
+            console.log("dealercards[1]", state.dealer.cards[1]);
             state.player.stay();
             calculateWinner(state);
             return { ...state };
@@ -76,11 +78,11 @@ function reducer(state, action) {
 const BlackJackHand = () => {
     const [state, dispatch] = useReducer(reducer, {}, init);
     const isFaceUp = (ind) => {
-        if(ind === 0) {
-            return true;
+        if(ind === 1) {
+            return false;
         }
         else{
-            return false;
+            return true;
         }
     };
 //main game portion

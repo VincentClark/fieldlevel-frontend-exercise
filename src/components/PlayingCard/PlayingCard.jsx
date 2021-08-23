@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 
 import styles from './PlayingCard.module.scss';
 
-let secondDealerCard = 0;
 const PlayingCard = ({ card, faceUp }) => {
-    secondDealerCard ++;
     const code = faceUp ? card.code : 'XX';
-    console.log(secondDealerCard);
+
     
     return (
         <div>
@@ -15,6 +13,7 @@ const PlayingCard = ({ card, faceUp }) => {
                 alt={card.toString()}
                 src={`https://deckofcardsapi.com/static/img/${code}.png`}
                 className={styles.CardImage}
+                id={card.code}
             />
         </div>
     );
