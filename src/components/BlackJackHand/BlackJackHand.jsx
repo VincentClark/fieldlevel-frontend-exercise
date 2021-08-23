@@ -23,12 +23,14 @@ function init() {
     console.log(`Dealer is showing ${dealerFirstCard}`);
     dealerCards.push(dealerFirstCard);
     console.log(`Dealer card: ${dealerCards[0]}`);
+    //set 2 second timer
+
     playerCards.push(deck.dealCard());
     dealerCards.push(deck.dealCard());
 
     const player = new PlayerHand(false, playerCards);
     const dealer = new PlayerHand(true, dealerCards);
-
+    console.log("Should be here");
     const initialState = {
         deck: deck,
         player: player,

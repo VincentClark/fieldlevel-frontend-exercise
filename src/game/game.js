@@ -93,19 +93,31 @@ export class PlayerHand {
     _isBlackJack = false;
     _isBust = false;
     _score = 0;
+    _dealerSecondCard = false;
 
     constructor(isDealer, initialCards) {
         this._isDealer = isDealer;
         this._cards = [].concat(initialCards);
         this._isFinished = false;
         this._scoreHand();
+        this._dealerSecondCard = false;
+
 
         if (this._score === 21) {
+            //don't think this is working as expected
             this._isBlackJack = true;
             this._isFinished = true;
         }
     }
-
+    get dealerSecondCard() {
+        return this._dealerSecondCard;
+    }
+    /**
+     * @param {boolean} bool
+     */
+    set setDealerSecondCard(bool) {
+        this._dealerSecondCard = bool;
+    }
     get cards() {
         return this._cards;
     }
@@ -135,6 +147,7 @@ export class PlayerHand {
     }
 
     addCard(card) {
+        console.log("add card", card);
         this._cards.push(card);
         this._scoreHand();
     }
