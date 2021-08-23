@@ -47,10 +47,15 @@ function calculateWinner(state) {
     if (state.player.isFinished) {
         if (!state.player.isBust) {
             while (!state.dealer.isFinished) {
+                console.log(`Dealer card: ${state.dealer.cards[1].code}`);
+                document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
                 state.dealer.addCard(state.deck.dealCard());
             }
             console.log(`Dealer score: ${state.dealer.score}`);
+        }else {
+            document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
         }
+        document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
 
         state.winner = BlackJack.calculateWinner(state.player, state.dealer);
     }

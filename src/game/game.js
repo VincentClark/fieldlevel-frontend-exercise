@@ -8,12 +8,12 @@ const ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
 export class Card {
     _suit;
     _rank;
-    _faceup;
-    //most likely will remove this. 
+
+
     constructor(suit, rank, faceup) {
         this._suit = suit;
         this._rank = rank;
-        this._faceup = faceup;
+
     }
     get rank() {
         return this._rank;
@@ -110,15 +110,7 @@ export class PlayerHand {
             this._isFinished = true;
         }
     }
-    get dealerSecondCard() {
-        return this._dealerSecondCard;
-    }
-    /**
-     * @param {boolean} bool
-     */
-    set setDealerSecondCard(bool) {
-        this._dealerSecondCard = bool;
-    }
+
     get cards() {
         return this._cards;
     }
