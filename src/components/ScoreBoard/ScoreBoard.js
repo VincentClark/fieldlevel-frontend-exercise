@@ -12,6 +12,7 @@ const ScoreBoard = ({ winner }) => {
     const [player, setPlayer] = useState(0);
     const [dealer, setDealer] = useState(0);
     const [push, setPush] = useState(0);
+    // eslint-disable-next-line no-unused-vars
     const [refresh, setRefresh] = useState();
     //setRefresh(winner);
     console.log("winner", winner);
@@ -39,7 +40,8 @@ const ScoreBoard = ({ winner }) => {
             }
             );
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        console.log("winner", winner);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [winner]);
 
 

@@ -27,11 +27,9 @@ function init() {
 
     playerCards.push(deck.dealCard());
     dealerCards.push(deck.dealCard());
-    
-    console.log(`Dealer card: ${dealerCards[1]}`);
     const player = new PlayerHand(false, playerCards);
     const dealer = new PlayerHand(true, dealerCards);
-    console.log("dealercards", dealerCards[1]);
+
     const initialState = {
         deck: deck,
         player: player,
@@ -51,13 +49,13 @@ function calculateWinner(state) {
                 document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
                 state.dealer.addCard(state.deck.dealCard());
             }
-            console.log(`Dealer score: ${state.dealer.score}`);
         }else {
             document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
         }
         document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
 
         state.winner = BlackJack.calculateWinner(state.player, state.dealer);
+        document.getElementById('dealerscore').style.display = '';
     }
 }
 
@@ -100,7 +98,7 @@ const BlackJackHand = () => {
                 
                 <div className={styles.Score}>
                 
-                    <div>{state.dealer.score}</div>
+                    <div id="dealerscore" style={{display:'none'}}>{state.dealer.score}</div>
                     <div></div>
                 </div>
             </div>
