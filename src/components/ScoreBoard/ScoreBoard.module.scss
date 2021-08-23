@@ -1,0 +1,11 @@
+.scoreboard {
+    display: grid;
+    //grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #2f6f26;
+    color: #ffffff;
+}

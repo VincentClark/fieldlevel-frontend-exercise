@@ -1,20 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import axios from 'axios';
 import { Button } from '../shared/Button/Button';
 import { Alert } from '../shared/Alert/Alert';
 import { PLAYER_ONE, DEALER, PUSH } from '../../game/game';
 
 import styles from './WinnerBanner.module.scss';
 
+
 const WinnerBanner = ({ winner, onNewHandClick }) => {
+    const submitResults = (win) => {
+        const json = {'result': win};
+        console.log("json", json);
+        axios.post('http://localhost:3001/api/score', json)
+        
+     //  window.location.reload(); 
+
+    }
+
+
     function getDetails(winner) {
         switch (winner) {
             case DEALER:
+                submitResults('dealer');
                 return { type: 'critical', text: 'Dealer Wins' };
             case PLAYER_ONE:
+                submitResults('player');
                 return { type: 'success', text: 'Player Wins' };
             case PUSH:
+                submitResults('push');                
                 return { type: 'default', text: 'Push', buttonClass: styles.PushButton };
             default:
                 return { type: 'default', text: '' };
@@ -22,6 +36,8 @@ const WinnerBanner = ({ winner, onNewHandClick }) => {
     }
 
     const details = getDetails(winner);
+    //refresh window
+    
 
     return (
         <div className={styles.Container}>
