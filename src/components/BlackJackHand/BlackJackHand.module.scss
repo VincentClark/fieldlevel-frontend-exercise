@@ -4,12 +4,14 @@
     justify-content: center;
     background-color: #2f6f26;
     padding: 64px 48px;
+    border: 1px solid black;
 }
 
 .ScoreContainer {
     padding: 16px;
     padding-right: 0;
     margin-right: -10px;
+    border: 1px solid blue;
 }
 
 .Score {
@@ -20,6 +22,7 @@
     border-bottom-left-radius: 4px;
     font-size: 24px;
     font-weight: 700;
+    border: 1px solid purple;
 
     div {
         display: flex;
@@ -28,7 +31,7 @@
         width: 80px;
         height: 40px;
         text-align: center;
-
+        border: 1px solid pink;
         + div {
             width: 10px;
         }
@@ -46,11 +49,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid red;
 }
 
 .Cards {
     display: flex;
     padding: 16px 0;
+    border: 1px solid black;
 }
 
 .Card {

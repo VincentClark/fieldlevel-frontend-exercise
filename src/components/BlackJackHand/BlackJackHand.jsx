@@ -15,9 +15,14 @@ function init() {
     const dealerCards = [];
 
     playerCards.push(deck.dealCard());
+    console.log(`Player card: ${playerCards[0]}`);
+
+    console.log(`Deck: ${deck}`);
+    console.log(`Player: ${playerCards.length}`);
     const dealerFirstCard = deck.dealCard();
     console.log(`Dealer is showing ${dealerFirstCard}`);
     dealerCards.push(dealerFirstCard);
+    console.log(`Dealer card: ${dealerCards[0]}`);
     playerCards.push(deck.dealCard());
     dealerCards.push(deck.dealCard());
 
@@ -55,6 +60,7 @@ function reducer(state, action) {
         case HIT:
             state.player.addCard(state.deck.dealCard());
             calculateWinner(state);
+            console.log("state", state);
             return { ...state };
         case STAY:
             state.player.stay();
@@ -67,15 +73,36 @@ function reducer(state, action) {
 
 const BlackJackHand = () => {
     const [state, dispatch] = useReducer(reducer, {}, init);
-
+//main game portion
     return (
         <div className={styles.Container}>
+            <div className={styles.ScoreContainer}>
+            <h2>Dealer</h2>
+                
+                <div className={styles.Score}>
+                
+                    <div>{state.dealer.score}</div>
+                    <div></div>
+                </div>
+            </div>
+            <div className={styles.Cards}>
+                
+                {state.dealer.cards.map((card, index) => (
+                    <div key={card.code} className={styles.Card}>
+                        <PlayingCard card={card} />
+                    </div>
+                ))}
+            </div> 
+            
             {state.winner && (
                 <div className={styles.WinnerBannerContainer}>
                     <WinnerBanner winner={state.winner} onNewHandClick={() => dispatch(newGame())}></WinnerBanner>
                 </div>
             )}
+            
+            <div>
             <div className={styles.ScoreContainer}>
+            <h2>Player</h2>
                 <div className={styles.Score}>
                     <div>{state.player.score}</div>
                     <div></div>
@@ -87,6 +114,7 @@ const BlackJackHand = () => {
                         <PlayingCard card={card} />
                     </div>
                 ))}
+            </div>
             </div>
             <div className={styles.MenuContainer}>
                 <div>
