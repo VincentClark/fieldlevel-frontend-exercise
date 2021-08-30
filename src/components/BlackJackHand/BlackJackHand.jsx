@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-
+import ScoreBoard from '../ScoreBoard/ScoreBoard';
 import { PlayingCard } from '../PlayingCard/PlayingCard';
 import { WinnerBanner } from '../WinnerBanner/WinnerBanner';
 import { Button } from '../shared/Button/Button';
@@ -15,12 +15,18 @@ function init() {
     const dealerCards = [];
 
     playerCards.push(deck.dealCard());
+    console.log(`Player card: ${playerCards[0]}`);
+
+    console.log(`Deck: ${deck}`);
+    console.log(`Player: ${playerCards.length}`);
     const dealerFirstCard = deck.dealCard();
     console.log(`Dealer is showing ${dealerFirstCard}`);
     dealerCards.push(dealerFirstCard);
+    
+    //set 2 second timer
+
     playerCards.push(deck.dealCard());
     dealerCards.push(deck.dealCard());
-
     const player = new PlayerHand(false, playerCards);
     const dealer = new PlayerHand(true, dealerCards);
 
@@ -39,12 +45,17 @@ function calculateWinner(state) {
     if (state.player.isFinished) {
         if (!state.player.isBust) {
             while (!state.dealer.isFinished) {
+                console.log(`Dealer card: ${state.dealer.cards[1].code}`);
+                document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
                 state.dealer.addCard(state.deck.dealCard());
             }
-            console.log(`Dealer score: ${state.dealer.score}`);
+        }else {
+            document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
         }
+        document.getElementById(state.dealer.cards[1].code).src=`https://deckofcardsapi.com/static/img/${state.dealer.cards[1].code}.png`
 
         state.winner = BlackJack.calculateWinner(state.player, state.dealer);
+        document.getElementById('dealerscore').style.display = '';
     }
 }
 
@@ -55,8 +66,10 @@ function reducer(state, action) {
         case HIT:
             state.player.addCard(state.deck.dealCard());
             calculateWinner(state);
+            console.log("state", state);
             return { ...state };
         case STAY:
+            console.log("dealercards[1]", state.dealer.cards[1]);
             state.player.stay();
             calculateWinner(state);
             return { ...state };
@@ -67,14 +80,42 @@ function reducer(state, action) {
 
 const BlackJackHand = () => {
     const [state, dispatch] = useReducer(reducer, {}, init);
-
+    const isFaceUp = (ind) => {
+        if(ind === 1) {
+            return false;
+        }
+        else{
+            return true;
+        }
+    };
+//main game portion
     return (
+        <>
+        
+        <div className={styles.MasterContainer}> 
         <div className={styles.Container}>
+            <div className={styles.ScoreContainer}>              
+                <div className={styles.Score}>
+                    <div id="dealerscore" style={{display:''}}>{state.dealer.score}</div>
+                    <div></div>
+                </div>
+            </div>
+            <div className={styles.Cards}>  
+                {state.dealer.cards.map((card, index) => (
+                    <div key={card.code} className={styles.Card}>
+                        {console.log("index",index)}
+                        <PlayingCard card={card} faceUp={isFaceUp(index)} />
+                    </div>
+                ))}
+            </div>  
             {state.winner && (
                 <div className={styles.WinnerBannerContainer}>
                     <WinnerBanner winner={state.winner} onNewHandClick={() => dispatch(newGame())}></WinnerBanner>
                 </div>
             )}
+            </div>
+            
+        <div className={styles.Container}>
             <div className={styles.ScoreContainer}>
                 <div className={styles.Score}>
                     <div>{state.player.score}</div>
@@ -88,8 +129,10 @@ const BlackJackHand = () => {
                     </div>
                 ))}
             </div>
-            <div className={styles.MenuContainer}>
-                <div>
+            
+        </div>
+        <div className={styles.MenuContainer}>
+                <div style={{textAlign:'center'}}>
                     <Button
                         onClick={() => dispatch(hit())}
                         disabled={state.player.isFinished}
@@ -105,10 +148,17 @@ const BlackJackHand = () => {
                     >
                         Stay
                     </Button>
+
                 </div>
             </div>
+            <div className = {styles.OverallScore}>
+                    <ScoreBoard winner={state.deck} />
+                </div>
         </div>
+ 
+        </>
     );
+    
 };
 
 export { BlackJackHand };

@@ -3,9 +3,18 @@
     display: flex;
     justify-content: center;
     background-color: #2f6f26;
-    padding: 64px 48px;
+    padding: 16px 8px;
+    text-align: center;
+}
+.MasterContainer {
+    justify-content: center;
+    background-color: #2f6f26;
 }
 
+.OverallScore {
+    justify-content: center;
+    text-align: center;
+}
 .ScoreContainer {
     padding: 16px;
     padding-right: 0;
@@ -43,7 +52,7 @@
 
 .MenuContainer {
     padding: 16px;
-    display: flex;
+    //display: flex;
     justify-content: space-between;
     align-items: center;
 }

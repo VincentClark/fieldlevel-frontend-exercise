@@ -6,12 +6,14 @@ import styles from './PlayingCard.module.scss';
 const PlayingCard = ({ card, faceUp }) => {
     const code = faceUp ? card.code : 'XX';
 
+    
     return (
         <div>
             <img
                 alt={card.toString()}
                 src={`https://deckofcardsapi.com/static/img/${code}.png`}
                 className={styles.CardImage}
+                id={card.code}
             />
         </div>
     );

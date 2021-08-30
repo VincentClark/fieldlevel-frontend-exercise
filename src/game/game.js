@@ -9,11 +9,12 @@ export class Card {
     _suit;
     _rank;
 
-    constructor(suit, rank) {
+
+    constructor(suit, rank, faceup) {
         this._suit = suit;
         this._rank = rank;
-    }
 
+    }
     get rank() {
         return this._rank;
     }
@@ -93,14 +94,18 @@ export class PlayerHand {
     _isBlackJack = false;
     _isBust = false;
     _score = 0;
+    _dealerSecondCard = false;
 
     constructor(isDealer, initialCards) {
         this._isDealer = isDealer;
         this._cards = [].concat(initialCards);
         this._isFinished = false;
         this._scoreHand();
+        this._dealerSecondCard = false;
+
 
         if (this._score === 21) {
+            //don't think this is working as expected
             this._isBlackJack = true;
             this._isFinished = true;
         }
@@ -135,6 +140,7 @@ export class PlayerHand {
     }
 
     addCard(card) {
+        console.log("add card", card);
         this._cards.push(card);
         this._scoreHand();
     }

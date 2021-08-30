@@ -1,0 +1,18 @@
+.scoreboard {
+    display: grid;
+    text-align: center;
+    //grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(246, 246, 124);
+    color: #000000;
+}
+
+.item1 {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+}
