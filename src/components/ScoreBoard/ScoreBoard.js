@@ -47,18 +47,29 @@ const ScoreBoard = ({ winner }) => {
 
     return (
         <div className={styles.scoreboard}>
-            <h1>ScoreBoard</h1>
-            <div className="score-board">
-                <div className="score-item">
-                    Player: {player}
-                </div>
-                <div className="score-item">
-                    Dealer: {dealer}
-                </div>
-                <div className="score-item">
-                    Push: {push}
-                </div>
+
+            <div className={styles.item1}>
+                Scores
             </div>
+            <div className="score-item">
+                Player:
+            </div>
+            <div className="score-item">
+                {player}
+            </div>
+            <div className="score-item">
+                Dealer:
+            </div>
+            <div>
+                {dealer}
+            </div>
+            <div className="score-item">
+                Push:
+            </div>
+            <div className="score-item">
+                {push}
+            </div>
+
         </div>
     )
 }

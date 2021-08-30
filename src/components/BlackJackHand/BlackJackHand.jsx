@@ -91,40 +91,32 @@ const BlackJackHand = () => {
 //main game portion
     return (
         <>
-        <ScoreBoard winner={state.deck} />
+        
+        <div className={styles.MasterContainer}> 
         <div className={styles.Container}>
-            <div className={styles.ScoreContainer}>
-            <h2>Dealer</h2>
-                
+            <div className={styles.ScoreContainer}>              
                 <div className={styles.Score}>
-                
-                    <div id="dealerscore" style={{display:'none'}}>{state.dealer.score}</div>
+                    <div id="dealerscore" style={{display:''}}>{state.dealer.score}</div>
                     <div></div>
                 </div>
             </div>
-            <div className={styles.Cards}>
-                
+            <div className={styles.Cards}>  
                 {state.dealer.cards.map((card, index) => (
-                                      
-                
                     <div key={card.code} className={styles.Card}>
                         {console.log("index",index)}
-                       
-                        
                         <PlayingCard card={card} faceUp={isFaceUp(index)} />
                     </div>
                 ))}
-            </div> 
-            
+            </div>  
             {state.winner && (
                 <div className={styles.WinnerBannerContainer}>
                     <WinnerBanner winner={state.winner} onNewHandClick={() => dispatch(newGame())}></WinnerBanner>
                 </div>
             )}
+            </div>
             
-            <div>
+        <div className={styles.Container}>
             <div className={styles.ScoreContainer}>
-            <h2>Player</h2>
                 <div className={styles.Score}>
                     <div>{state.player.score}</div>
                     <div></div>
@@ -137,9 +129,10 @@ const BlackJackHand = () => {
                     </div>
                 ))}
             </div>
-            </div>
-            <div className={styles.MenuContainer}>
-                <div>
+            
+        </div>
+        <div className={styles.MenuContainer}>
+                <div style={{textAlign:'center'}}>
                     <Button
                         onClick={() => dispatch(hit())}
                         disabled={state.player.isFinished}
@@ -155,9 +148,14 @@ const BlackJackHand = () => {
                     >
                         Stay
                     </Button>
+
                 </div>
             </div>
+            <div className = {styles.OverallScore}>
+                    <ScoreBoard winner={state.deck} />
+                </div>
         </div>
+ 
         </>
     );
     
